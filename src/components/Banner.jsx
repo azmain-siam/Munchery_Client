@@ -18,9 +18,9 @@ export const Banner = () => {
               words={["Speed.", "Quality.", "Excellence."]}
               cursor
               loop="0"
-              delaySpeed="2500"
-              deleteSpeed="60"
-              typeSpeed="90"
+              delaySpeed="2200"
+              deleteSpeed="50"
+              typeSpeed="60"
               cursorStyle="|"
             />
           </span>
