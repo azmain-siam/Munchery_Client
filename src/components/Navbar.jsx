@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { HiMenuAlt1 } from "react-icons/hi";
 
 const Navbar = () => {
   const navlinks = [
@@ -56,11 +57,14 @@ const Navbar = () => {
     <div
       className={`flex items-center min-h-[66px] fixed top-0 w-full z-50 ${navbarClasses}`}
     >
-      <nav className="navbar flex my-1 w-full px-[3%]">
-        <h3 className="navbar-start text-2xl font-playwrite font-extrabold">
+      <nav className="navbar flex items-center my-1 w-full px-[3%]">
+        <div className="lg:hidden mr-2">
+          <HiMenuAlt1 size={21} />
+        </div>
+        <h3 className="navbar-start text-xl md:text-2xl font-playwrite font-extrabold">
           Munchery<span className="text-primary">.</span>
         </h3>
-        <ul className="flex gap-7 items-center navbar-center">
+        <ul className="hidden lg:flex gap-6 items-center navbar-center ">
           {navlinks.map((link) => (
             <NavLink
               key={link.link}
