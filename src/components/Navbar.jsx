@@ -34,7 +34,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
-      if (offset > 30) {
+      if (offset > 50) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -49,7 +49,7 @@ const Navbar = () => {
   }, []);
 
   const navbarClasses = scrolled
-    ? "bg-[#FFF6E9] bg-opacity-20 transition duration-300 text-black shadow-md backdrop-blur-lg"
+    ? "bg-[#FFF6E9] bg-opacity-50 transition duration-300 text-black shadow-md backdrop-blur-xl"
     : "text-black transition duration-300";
 
   return (
