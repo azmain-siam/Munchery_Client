@@ -9,10 +9,12 @@ export default {
         black: "#1D1D1D",
         dark: "#4F4F4F",
         dark2: "#828282",
+        accent: "#FFF6E9",
       },
       fontFamily: {
         outfit: '"Outfit", sans-serif',
         playwrite: '"Playwrite MX", cursive',
+        greatVives: '"Great Vibes", cursive',
       },
     },
   },

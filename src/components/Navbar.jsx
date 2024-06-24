@@ -49,23 +49,23 @@ const Navbar = () => {
   }, []);
 
   const navbarClasses = scrolled
-    ? "bg-[#FFF6E9] transition duration-300 text-black"
-    : " transition duration-300";
+    ? "bg-[#FFF6E9] bg-opacity-20 transition duration-300 text-black shadow-md backdrop-blur-lg"
+    : "text-black transition duration-300";
 
   return (
     <div
-      className={`shadow-md flex items-center min-h-[66px] fixed top-0 w-full z-50 ${navbarClasses}`}
+      className={`flex items-center min-h-[66px] fixed top-0 w-full z-50 ${navbarClasses}`}
     >
-      <nav className="flex my-3 justify-between w-full px-[3%]">
-        <h3 className="text-2xl font-playwrite font-extrabold">
+      <nav className="navbar flex my-1 w-full px-[3%]">
+        <h3 className="navbar-start text-2xl font-playwrite font-extrabold">
           Munchery<span className="text-primary">.</span>
         </h3>
-        <ul className="flex gap-7 items-center">
+        <ul className="flex gap-7 items-center navbar-center">
           {navlinks.map((link) => (
             <NavLink
               key={link.link}
               to={link.to}
-              className="relative inline-flex font-outfit items-center justify-center leading-normal px-1 text-black font-medium transition group"
+              className="relative inline-flex font-outfit items-center justify-center leading-normal px-1 font-medium transition group"
             >
               {({ isActive }) => (
                 <>
@@ -87,6 +87,9 @@ const Navbar = () => {
             </NavLink>
           ))}
         </ul>
+        <div className="navbar-end">
+          <button>Sign In</button>
+        </div>
       </nav>
     </div>
   );
