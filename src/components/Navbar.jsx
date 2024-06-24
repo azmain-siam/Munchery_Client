@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
 
@@ -30,7 +30,22 @@ const Navbar = () => {
     },
   ];
 
+  const [open, setOpen] = useState(false);
+
+  const menuRef = useRef(null);
+  console.log(menuRef.current);
+
   const [scrolled, setScrolled] = useState(false);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
+
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setOpen(false);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,6 +64,22 @@ const Navbar = () => {
     };
   }, []);
 
+  // Clicking outside
+  useEffect(() => {
+    if (open) {
+      document.body.classList.add("overflow-hidden");
+      document.addEventListener("click", handleClickOutside, true);
+    } else {
+      document.body.classList.remove("overflow-hidden");
+      document.removeEventListener("click", handleClickOutside, true);
+    }
+
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+      document.removeEventListener("click", handleClickOutside, true);
+    };
+  }, [open]);
+
   const navbarClasses = scrolled
     ? "bg-[#FFF6E9] bg-opacity-50 transition duration-300 text-black shadow-md backdrop-blur-xl"
     : "text-black transition duration-300";
@@ -58,8 +89,28 @@ const Navbar = () => {
       className={`flex items-center min-h-[66px] fixed top-0 w-full z-50 ${navbarClasses}`}
     >
       <nav className="navbar flex items-center my-1 w-full px-[3%]">
-        <div className="lg:hidden mr-2">
-          <HiMenuAlt1 size={21} />
+        <div className="relative lg:hidden" ref={menuRef}>
+          <button onClick={handleClick} className="lg:hidden mr-2">
+            <HiMenuAlt1 size={21} />
+          </button>
+
+          {/* Sidebar */}
+          <div
+            className={`fixed h-full top-0 left-0 bg-primary py-2 px-3 w-[150px] transform ${
+              open ? "translate-x-0" : "-translate-x-full"
+            } transition-transform duration-300 ease-in-out z-20 shadow-xl`}
+          >
+            <ul>
+              <li>Home</li>
+            </ul>
+          </div>
+          {/* Overlay */}
+          {open && (
+            <div
+              className="fixed inset-0 bg-black bg-opacity-50"
+              onClick={handleClick}
+            ></div>
+          )}
         </div>
         <h3 className="navbar-start text-xl md:text-2xl font-playwrite font-extrabold">
           Munchery<span className="text-primary">.</span>

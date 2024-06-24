@@ -16,6 +16,10 @@ export default {
         playwrite: '"Playwrite MX", cursive',
         greatVives: '"Great Vibes", cursive',
       },
+      // overflow: {
+      //   "no-scroll": "hidden",
+      // },
+      
     },
   },
   plugins: [require("daisyui")],
