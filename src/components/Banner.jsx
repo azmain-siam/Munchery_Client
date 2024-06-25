@@ -15,7 +15,7 @@ export const Banner = () => {
           the Art of{" "}
           <span className="text-primary">
             <Typewriter
-              words={["Speed.", "Quality.", "Excellence."]}
+              words={["Quality.", "Speed.", "Excellence."]}
               cursor
               loop="0"
               delaySpeed="2200"

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
 
 const Navbar = () => {
@@ -29,6 +29,9 @@ const Navbar = () => {
       to: "/contact",
     },
   ];
+
+  const location = useLocation();
+  console.log(location.pathname);
 
   const [open, setOpen] = useState(false);
 
@@ -80,15 +83,18 @@ const Navbar = () => {
     };
   }, [open]);
 
+  const navConditionClass =
+    location.pathname !== "/" ? "shadow-md bg-accent" : "";
+
   const navbarClasses = scrolled
-    ? "bg-[#FFF6E9] bg-opacity-50 transition duration-300 text-black shadow-md backdrop-blur-xl"
+    ? "bg-[#FFF6E9] transition duration-300 text-black shadow-md"
     : "text-black transition duration-300";
 
   return (
     <div
-      className={`flex items-center min-h-[66px] fixed top-0 w-full z-50 ${navbarClasses}`}
+      className={`flex items-center min-h-[66px] fixed top-0 w-full z-50 ${navbarClasses} ${navConditionClass}`}
     >
-      <nav className="navbar flex items-center sm:my-1 w-full px-[3%]">
+      <nav className={`navbar flex items-center sm:my-1 w-full px-[3%] `}>
         <div className="relative lg:hidden" ref={menuRef}>
           <button onClick={handleClick} className="lg:hidden mr-2">
             <HiMenuAlt1 size={21} />
@@ -96,20 +102,20 @@ const Navbar = () => {
 
           {/* Sidebar */}
           <div
-            className={`fixed h-screen shadow-[0_3px_10px_rgb(0,0,0,0.2)] top-0 left-0 bg-accent py-8 w-[200px] sm:w-[250px] transform ${
-              open ? "translate-x-0" : "-translate-x-full"
-            } transition-transform duration-300 ease-in-out z-20 shadow-xl`}
+            className={`fixed h-screen shadow-[0_3px_10px_rgb(0,0,0,0.2)] top-0 left-0 bg-accent py-8 w-[200px] sm:w-[270px] transform ${
+              open ? "translate-x-0 overflow-y-auto" : "-translate-x-full"
+            } transition-transform duration-300 ease-in-out z-10  shadow-xl`}
           >
-            <h3 className="navbar-start px-4 text-2xl font-playwrite font-extrabold mb-7">
+            <h3 className="px-4 text-2xl md:text-3xl font-playwrite font-extrabold mb-9">
               Munchery<span className="text-primary">.</span>
             </h3>
-            <ul className="flex flex-col gap-2 font-medium px-2">
+            <ul className="flex flex-col gap-2 font-medium px-2 ">
               {navlinks.map((li) => (
                 <NavLink
                   onClick={() => setOpen(false)}
                   key={li.link}
                   className={({ isActive }) =>
-                    `py-2 px-3 rounded-lg hover:bg-[#ff5e000e] ${
+                    `py-3 px-5 rounded-lg hover:bg-[#ff5e000e] ${
                       isActive && "bg-[#ff5e000e]"
                     }`
                   }
@@ -123,7 +129,7 @@ const Navbar = () => {
           {/* Overlay */}
           {open && (
             <div
-              className="fixed h-screen inset-0 bg-black bg-opacity-50"
+              className={`fixed h-screen inset-0 bg-black bg-opacity-50 `}
               onClick={handleClick}
             ></div>
           )}
