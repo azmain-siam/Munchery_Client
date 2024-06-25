@@ -96,14 +96,28 @@ const Navbar = () => {
 
           {/* Sidebar */}
           <div
-            className={`fixed h-screen shadow-[0_3px_10px_rgb(0,0,0,0.2)] top-0 -left-1 bg-accent py-2 px-3 w-[50%] sm:w-[250px] transform ${
+            className={`fixed h-screen shadow-[0_3px_10px_rgb(0,0,0,0.2)] top-0 left-0 bg-accent py-8 w-[200px] sm:w-[250px] transform ${
               open ? "translate-x-0" : "-translate-x-full"
             } transition-transform duration-300 ease-in-out z-20 shadow-xl`}
           >
-            <ul>
-              <Link className="" to={"/"}>
-                <li>Home</li>
-              </Link>
+            <h3 className="navbar-start px-4 text-2xl font-playwrite font-extrabold mb-7">
+              Munchery<span className="text-primary">.</span>
+            </h3>
+            <ul className="flex flex-col gap-2 font-medium px-2">
+              {navlinks.map((li) => (
+                <NavLink
+                  onClick={() => setOpen(false)}
+                  key={li.link}
+                  className={({ isActive }) =>
+                    `py-2 px-3 rounded-lg hover:bg-[#ff5e000e] ${
+                      isActive && "bg-[#ff5e000e]"
+                    }`
+                  }
+                  to={li.to}
+                >
+                  {li.link}
+                </NavLink>
+              ))}
             </ul>
           </div>
           {/* Overlay */}
