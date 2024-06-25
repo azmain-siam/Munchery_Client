@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
 
 const Navbar = () => {
@@ -88,7 +88,7 @@ const Navbar = () => {
     <div
       className={`flex items-center min-h-[66px] fixed top-0 w-full z-50 ${navbarClasses}`}
     >
-      <nav className="navbar flex items-center my-1 w-full px-[3%]">
+      <nav className="navbar flex items-center sm:my-1 w-full px-[3%]">
         <div className="relative lg:hidden" ref={menuRef}>
           <button onClick={handleClick} className="lg:hidden mr-2">
             <HiMenuAlt1 size={21} />
@@ -96,18 +96,20 @@ const Navbar = () => {
 
           {/* Sidebar */}
           <div
-            className={`fixed h-full top-0 left-0 bg-primary py-2 px-3 w-[150px] transform ${
+            className={`fixed h-screen shadow-[0_3px_10px_rgb(0,0,0,0.2)] top-0 -left-1 bg-accent py-2 px-3 w-[50%] sm:w-[250px] transform ${
               open ? "translate-x-0" : "-translate-x-full"
             } transition-transform duration-300 ease-in-out z-20 shadow-xl`}
           >
             <ul>
-              <li>Home</li>
+              <Link className="" to={"/"}>
+                <li>Home</li>
+              </Link>
             </ul>
           </div>
           {/* Overlay */}
           {open && (
             <div
-              className="fixed inset-0 bg-black bg-opacity-50"
+              className="fixed h-screen inset-0 bg-black bg-opacity-50"
               onClick={handleClick}
             ></div>
           )}
@@ -115,6 +117,7 @@ const Navbar = () => {
         <h3 className="navbar-start text-xl md:text-2xl font-playwrite font-extrabold">
           Munchery<span className="text-primary">.</span>
         </h3>
+        {/* Navlinks */}
         <ul className="hidden lg:flex gap-6 items-center navbar-center ">
           {navlinks.map((link) => (
             <NavLink
