@@ -10,7 +10,7 @@ const Layout = () => {
       <Navbar />
       <div
         className={`min-h-[calc(100vh-293px)] ${
-          location.pathname !== "/" ? "container mx-auto pt-20 mb-10" : ""
+          location.pathname !== "/" ? "container mx-auto pt-[85px] mb-10" : ""
         }`}
       >
         <Outlet />

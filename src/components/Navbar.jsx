@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
 
 const Navbar = () => {
@@ -31,12 +31,11 @@ const Navbar = () => {
   ];
 
   const location = useLocation();
-  console.log(location.pathname);
 
   const [open, setOpen] = useState(false);
 
   const menuRef = useRef(null);
-  console.log(menuRef.current);
+  // console.log(menuRef.current);
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -58,6 +57,7 @@ const Navbar = () => {
       } else {
         setScrolled(false);
       }
+      // console.log(offset);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -84,10 +84,10 @@ const Navbar = () => {
   }, [open]);
 
   const navConditionClass =
-    location.pathname !== "/" ? "shadow-md bg-accent" : "";
+    location.pathname !== "/" ? "bg-accent" : "";
 
   const navbarClasses = scrolled
-    ? "bg-[#FFF6E9] transition duration-300 text-black shadow-md"
+    ? "bg-[#FFF6E9] transition duration-500 text-black shadow-md border-none h-[50px] backdrop-blur"
     : "text-black transition duration-300";
 
   return (
@@ -134,9 +134,13 @@ const Navbar = () => {
             ></div>
           )}
         </div>
-        <h3 className="navbar-start text-xl md:text-2xl font-playwrite font-extrabold">
+
+        <Link
+          to={"/"}
+          className="navbar-start text-xl md:text-2xl font-playwrite font-extrabold"
+        >
           Munchery<span className="text-primary">.</span>
-        </h3>
+        </Link>
         {/* Navlinks */}
         <ul className="hidden lg:flex gap-6 items-center navbar-center ">
           {navlinks.map((link) => (
