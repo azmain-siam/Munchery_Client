@@ -83,24 +83,23 @@ const Navbar = () => {
     };
   }, [open]);
 
-  const navConditionClass =
-    location.pathname !== "/" ? "bg-accent" : "";
+  const navConditionClass = location.pathname !== "/" ? "bg-accent" : "";
 
   const navbarClasses = scrolled
-    ? "bg-[#FFF6E9] transition duration-500 text-black shadow-md border-none h-[50px] backdrop-blur"
+    ? "bg-[#FFF6E9] transition duration-200 text-black shadow-md border-none h-[50px] backdrop-blur"
     : "text-black transition duration-300";
 
   return (
     <div
-      className={`flex items-center min-h-[66px] fixed top-0 w-full z-50 ${navbarClasses} ${navConditionClass}`}
+      className={`flex items-center lg:min-h-[66px] fixed top-0 w-full z-50 ${navbarClasses} ${navConditionClass}`}
     >
       <nav className={`navbar flex items-center sm:my-1 w-full px-[3%] `}>
         <div className="relative lg:hidden" ref={menuRef}>
-          <button onClick={handleClick} className="lg:hidden mr-2">
-            <HiMenuAlt1 size={21} />
-          </button>
 
           {/* Sidebar */}
+          <button onClick={handleClick} className="lg:hidden mr-1 focus:bg-[#00000025] p-2 rounded-full">
+            <HiMenuAlt1 size={21} />
+          </button>
           <div
             className={`fixed h-screen shadow-[0_3px_10px_rgb(0,0,0,0.2)] top-0 left-0 bg-accent py-8 w-[200px] sm:w-[270px] transform ${
               open ? "translate-x-0 overflow-y-auto" : "-translate-x-full"
@@ -137,7 +136,7 @@ const Navbar = () => {
 
         <Link
           to={"/"}
-          className="navbar-start text-xl md:text-2xl font-playwrite font-extrabold"
+          className="navbar-start text-xl lg:text-2xl font-playwrite font-extrabold"
         >
           Munchery<span className="text-primary">.</span>
         </Link>
