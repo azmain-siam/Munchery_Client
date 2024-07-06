@@ -95,9 +95,11 @@ const Navbar = () => {
     >
       <nav className={`navbar flex items-center sm:my-1 w-full px-[3%] `}>
         <div className="relative lg:hidden" ref={menuRef}>
-
           {/* Sidebar */}
-          <button onClick={handleClick} className="lg:hidden mr-1 focus:bg-[#00000025] p-2 rounded-full">
+          <button
+            onClick={handleClick}
+            className="lg:hidden mr-1 focus:bg-[#00000025] p-2 rounded-full"
+          >
             <HiMenuAlt1 size={21} />
           </button>
           <div
