@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 export const Banner = () => {
   return (
-    <div className="min-h-screen md:h-screen flex flex-col-reverse gap-4 md:flex-row mt-[80px] md:mt-5 lg:mt-0 justify-between items-center container mx-auto px-[5%] md:px-[3%] lg:px-[4%] z-20 mb-10">
-      <div className="space-y-4 lg:space-y-5">
+    <div className=" md:h-screen flex flex-col-reverse gap-10 md:gap-0 md:flex-row mt-[80px] md:mt-5 lg:mt-0 md:justify-between items-center container mx-auto px-[5%] md:px-[3%] lg:px-[4%] z-20 mb-10">
+      <div className="space-y-4 lg:space-y-6">
         <h3 className="text-xl md:text-2xl lg:text-3xl font-greatVives text-primary font-bold">
           Its Quick & Amusing!
         </h3>
@@ -25,7 +25,7 @@ export const Banner = () => {
             />
           </span>
         </h3>
-        <p className=" lg:text-xl text-dark max-w-[400px] lg:max-w-[670px] mb-3">
+        <p className="lg:text-xl text-dark max-w-[400px] lg:max-w-[670px] mb-3">
           Experience gourmet dishes crafted with the finest ingredients, served
           swiftly without compromising quality. Taste the perfect blend of speed
           and excellence at{" "}
@@ -39,6 +39,7 @@ export const Banner = () => {
           </Link>
         </div>
       </div>
+
       <div className="h-[70%] md:h-[60%] lg:h-[68%] overflow-hidden">
         <img
           className="h-full w-[80%] md:w-full mx-auto object-contain"

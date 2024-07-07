@@ -1,18 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { menuItems } from "../../public/menuItems";
 import "swiper/css/bundle";
 
 const MenuItems = () => {
   const [item, setItem] = useState("All");
-  console.log("item", item);
 
-  const handleClickItem = async (selectedItem) => {
+  const handleClickItem = (selectedItem) => {
     console.log("selectedItem", selectedItem);
     setItem(selectedItem);
-
-    // if (selectedItem !== item) {
-    //   setItem(selectedItem);
-    // }
     console.log("after", item);
   };
 
@@ -20,7 +15,7 @@ const MenuItems = () => {
     <div className="flex overflow-x-auto justify-between items-center gap-4 my-11 px-[3%] w-full pb-5">
       {menuItems.map((items, idx) => (
         <div
-          onClick={() => setItem(prev=>prev === items.menu)}
+          onClick={() => handleClickItem(items.menu)}
           key={idx}
           className={`size-24 md:size-32 lg:size-36 flex-none group/edit relative rounded-full overflow-hidden cursor-pointer ${
             items.menu === item

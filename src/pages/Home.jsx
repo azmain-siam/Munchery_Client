@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div>
       <div className="relative min-h-screen overflow-hidden">
-        <div className="absolute h-full -right-[320px] md:-right-[65px]">
+        <div className="absolute h-full -right-[320px] md:-right-[80px]">
           <img className="h-full" src={bgImg} />
         </div>
         <div className="min-h-screen flex items-center">
