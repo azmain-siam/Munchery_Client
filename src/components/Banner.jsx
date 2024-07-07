@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 export const Banner = () => {
   return (
     <div className=" md:h-screen flex flex-col-reverse gap-10 md:gap-0 md:flex-row mt-[80px] md:mt-5 lg:mt-0 md:justify-between items-center container mx-auto px-[5%] md:px-[3%] lg:px-[4%] z-20 mb-10">
-      <div className="space-y-4 lg:space-y-6">
+      <div className="space-y-4 lg:space-y-5">
         <h3 className="text-xl md:text-2xl lg:text-3xl font-greatVives text-primary font-bold">
           Its Quick & Amusing!
         </h3>
-        <h3 className="text-2xl md:text-4xl lg:text-6xl font-semibold leading-tight cursor-default mb-6">
-          Experience <br />
+        <div className="text-2xl md:text-4xl lg:text-6xl font-semibold cursor-default mb-6">
+          <h3 className="mb-3">Experience</h3>
           the Art of{" "}
           <span className="text-primary">
             <Typewriter
@@ -24,7 +24,7 @@ export const Banner = () => {
               cursorStyle="|"
             />
           </span>
-        </h3>
+        </div>
         <p className="lg:text-xl text-dark max-w-[400px] lg:max-w-[670px] mb-3">
           Experience gourmet dishes crafted with the finest ingredients, served
           swiftly without compromising quality. Taste the perfect blend of speed

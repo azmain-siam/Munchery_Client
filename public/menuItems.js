@@ -1,30 +1,30 @@
 export const menuItems = [
   {
-    menu: "breakfast",
+    name: "breakfast",
     thumbnail: "https://i.ibb.co/6Z0XHjB/9515.jpg",
   },
   {
-    menu: "lunch",
+    name: "lunch",
     thumbnail: "https://i.ibb.co/NjZ1yNz/lunch.jpg",
   },
   {
-    menu: "dinner",
+    name: "dinner",
     thumbnail: "https://i.ibb.co/fS9j7Gc/dinner.jpg",
   },
   {
-    menu: "desserts",
+    name: "desserts",
     thumbnail: "https://i.ibb.co/W09TKxH/dessert.jpg",
   },
   {
-    menu: "drinks",
+    name: "drinks",
     thumbnail: "https://i.ibb.co/z5rjqxF/drinks.jpg",
   },
   {
-    menu: "snacks",
+    name: "snacks",
     thumbnail: "https://i.ibb.co/CzxtH9k/snacks.jpg",
   },
   {
-    menu: "soups",
+    name: "soups",
     thumbnail: "https://i.ibb.co/bmr22dk/soups.jpg",
   },
 ];
