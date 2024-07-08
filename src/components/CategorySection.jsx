@@ -3,9 +3,11 @@ import MenuItems from "./MenuItems";
 import SectionHeading from "./SectionHeading";
 import { Fade } from "react-awesome-reveal";
 import { StoreContext } from "../contexts/StoreContext";
+import Loading from "./Loading";
 
 export default function CategorySection() {
   const [items, setItems] = useState([]);
+  const [category, setCategory] = useState("All");
   const { loading, setLoading } = useContext(StoreContext);
 
   useEffect(() => {
@@ -14,6 +16,14 @@ export default function CategorySection() {
       .then((data) => setItems(data));
     setLoading(false);
   }, [setLoading]);
+
+  if (loading) {
+    return (
+      <div className="mb-20">
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -24,7 +34,11 @@ export default function CategorySection() {
             subHeading={"From Our Menu"}
           />
         </div>
-        <MenuItems foods={items} />
+        <MenuItems
+          category={category}
+          setCategory={setCategory}
+          foods={items}
+        />
       </Fade>
     </div>
   );

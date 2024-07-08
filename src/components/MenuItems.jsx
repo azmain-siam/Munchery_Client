@@ -1,11 +1,8 @@
-import { useState } from "react";
 import { menuItems } from "../../public/menuItems";
 import "swiper/css/bundle";
+import PropTypes from "prop-types";
 
-const MenuItems = ({ foods }) => {
-  const [category, setCategory] = useState("All");
-  console.log(foods);
-
+const MenuItems = ({ category, setCategory }) => {
   return (
     <div className="flex overflow-x-auto justify-between items-center gap-4 my-11 px-[3%] w-full pb-5">
       {menuItems.map((items, idx) => (
@@ -31,4 +28,8 @@ const MenuItems = ({ foods }) => {
 
 export default MenuItems;
 
- 
+MenuItems.propTypes = {
+  foods: PropTypes.array,
+  category: PropTypes.string,
+  setCategory: PropTypes.func,
+};
