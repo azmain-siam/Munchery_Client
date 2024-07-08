@@ -1,13 +1,15 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import PropTypes from "prop-types";
 
 export const StoreContext = createContext(null);
 
 const StoreContextProivder = ({ children }) => {
-  const contextValue = {};
+  const [loading, setLoading] = useState(true);
+
+  const contextValue = { loading, setLoading };
 
   return (
-    <StoreContext.Provider contextValue={contextValue}>
+    <StoreContext.Provider value={contextValue}>
       {children}
     </StoreContext.Provider>
   );

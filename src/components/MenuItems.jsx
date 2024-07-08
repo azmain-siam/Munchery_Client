@@ -2,9 +2,9 @@ import { useState } from "react";
 import { menuItems } from "../../public/menuItems";
 import "swiper/css/bundle";
 
-const MenuItems = () => {
+const MenuItems = ({ foods }) => {
   const [category, setCategory] = useState("All");
-  console.log(category);
+  console.log(foods);
 
   return (
     <div className="flex overflow-x-auto justify-between items-center gap-4 my-11 px-[3%] w-full pb-5">
@@ -30,3 +30,5 @@ const MenuItems = () => {
 };
 
 export default MenuItems;
+
+ 
